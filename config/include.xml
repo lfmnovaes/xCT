@@ -6,5 +6,6 @@
 	<Script file="merge_mop.lua"/>
 	<Script file="merge_bfa.lua"/>
 	<Script file="merge_other.lua"/>
+	<Script file="merge_race.lua"/>
 	<Script file="profile.lua"/>
 </Ui>

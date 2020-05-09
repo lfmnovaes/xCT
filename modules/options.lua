@@ -779,6 +779,27 @@ addon.options.args["spells"] = {
         },
       },
     },
+    
+    raceList = {
+      name = "Racial Spells",
+      type = 'group',
+      order = 23,
+      args = {
+        title = {
+          type = 'description',
+          order = 0,
+          name = "List of Mergeable Spells |cff798BDD(See Category)|r",
+          fontSize = "large",
+          width = "double",
+        },
+        mergeListDesc = {
+          type = "description",
+          order = 1,
+          fontSize = "small",
+          name = "Uncheck an item if you do not want it merged. Contact me to add new items. See |cffFFFF00Credits|r for contact info.\n\n",
+        },
+      },
+    },
 
   },
 }

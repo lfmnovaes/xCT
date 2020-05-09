@@ -55,6 +55,37 @@ do
 		return spell_2
 	end
 
+	-- rspell for race spells
+	local _debug_working_race = false
+	local _working_race = {}
+
+	local function race(name)
+		_working_race.race = name
+	end
+
+	-- for spell, but the second arg
+	local function rspell_2(interval)
+		_debug_working_race = false
+		print ("rspell2")
+		interval = tonumber(interval)
+		-- Create the spell here
+		print ("rspell2")
+		addon.merges[_working_race.spellId] = {
+			class = _working_race.race or "ITEM",
+			interval = interval or 3,
+			desc = "999999",
+			prep = _working_race.prep or interval or 3,
+		}
+	end
+
+	local function rspell(id)
+		-- Leave this in so you don't shoot yourself in the foot
+		if _debug_working_race then error "finish your first spell" end
+		_debug_working_race = true
+		_working_race.spellId = tonumber(id) or id
+		return rspell_2
+	end
+
 	-- alias helper
 	local _debug_working_alias = false
 	local _working_alias
@@ -110,5 +141,6 @@ do
 	end
 
 
-	addon.merge_helpers = {spell, class, spec, alias, item, header}
+	--addon.merge_helpers = {spell, class, spec, alias, item, header}
+	addon.merge_helpers = {spell, class, spec, alias, item, header, race, rspell}
 end
